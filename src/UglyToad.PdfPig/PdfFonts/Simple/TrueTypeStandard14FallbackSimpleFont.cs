@@ -24,7 +24,7 @@
         private readonly TrueTypeFont font;
         private readonly MetricOverrides overrides;
 
-        public NameToken? Name { get; }
+        public NameToken Name { get; }
 
         public bool IsVertical { get; } = false;
 
@@ -123,6 +123,16 @@
             bounds = fontMatrix.Transform(metrics.BoundingBox);
 
             return new CharacterBoundingBox(bounds, width);
+        }
+
+        public double GetDescent()
+        {
+            return fontMetrics.Descender;
+        }
+
+        public double GetAscent()
+        {
+            return fontMetrics.Ascender;
         }
 
         public TransformationMatrix GetFontMatrix()

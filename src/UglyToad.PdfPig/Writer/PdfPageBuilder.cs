@@ -447,6 +447,7 @@
             return this;
         }
 
+        /*
         /// <summary>
         /// Calculates the size and position of each letter in a given string in the provided font without changing the state of the page. 
         /// </summary>
@@ -561,6 +562,7 @@
 
             return letters;
         }
+        */
 
         /// <summary>
         /// Set the text rendering mode. This will apply to all future calls to AddText until called again.
@@ -1034,6 +1036,7 @@
             return this;
         }
 
+        /*
         private List<Letter> DrawLetters(NameToken? name, string text, IWritingFont font, in TransformationMatrix fontMatrix, double fontSize, TransformationMatrix textMatrix)
         {
             var horizontalScaling = 1;
@@ -1094,6 +1097,7 @@
 
             return letters;
         }
+        */
 
         private static double RgbToDouble(byte value)
         {

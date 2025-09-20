@@ -139,6 +139,16 @@
             return result;
         }
 
+        public double GetDescent()
+        {
+            return CidFont.Descriptor.Descent;
+        }
+
+        public double GetAscent()
+        {
+            return CidFont.Descriptor.Ascent;
+        }
+
         public TransformationMatrix GetFontMatrix()
         {
             return CidFont.FontMatrix;

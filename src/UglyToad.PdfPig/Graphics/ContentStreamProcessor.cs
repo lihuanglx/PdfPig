@@ -105,6 +105,9 @@ namespace UglyToad.PdfPig.Graphics
                     textMatrix,
                     transformationMatrix,
                     new PdfRectangle(0, 0, characterBoundingBox.Width, UserSpaceUnit.PointMultiples));
+            
+            var looseBox = new PdfRectangle(0, font.GetDescent() / 1000, characterBoundingBox.Width, font.GetAscent() / 1000);
+            var transformedLooseBox = PerformantRectangleTransformer.Transform(renderingMatrix, textMatrix, transformationMatrix, looseBox);
 
             if (ParsingOptions.ClipPaths)
             {
@@ -132,6 +135,7 @@ namespace UglyToad.PdfPig.Graphics
                         attachTo.StartBaseLine,
                         attachTo.EndBaseLine,
                         attachTo.Width,
+                        attachTo.LooseBox,
                         attachTo.FontSize,
                         attachTo.Font,
                         attachTo.RenderingMode,
@@ -157,8 +161,9 @@ namespace UglyToad.PdfPig.Graphics
                     transformedPdfBounds.BottomLeft,
                     transformedPdfBounds.BottomRight,
                     transformedPdfBounds.Width,
+                    transformedLooseBox,
                     fontSize,
-                    font.Details,
+                    font,
                     currentState.FontState.TextRenderingMode,
                     currentState.CurrentStrokingColor!,
                     currentState.CurrentNonStrokingColor!,

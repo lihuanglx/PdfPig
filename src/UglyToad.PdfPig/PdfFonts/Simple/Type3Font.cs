@@ -91,6 +91,16 @@
             return new CharacterBoundingBox(characterBoundingBox, width);
         }
 
+        public double GetDescent()
+        {
+            return 0;
+        }
+
+        public double GetAscent()
+        {
+            return boundingBox.Height;
+        }
+
         private PdfRectangle GetBoundingBoxInGlyphSpace(int characterCode)
         {
             if (characterCode < firstChar || characterCode > lastChar)

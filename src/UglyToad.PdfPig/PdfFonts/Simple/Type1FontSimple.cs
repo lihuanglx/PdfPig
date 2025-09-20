@@ -167,6 +167,16 @@
             return result;
         }
 
+        public double GetDescent()
+        {
+            return fontDescriptor.Descent;
+        }
+
+        public double GetAscent()
+        {
+            return fontDescriptor.Ascent;
+        }
+
         private double GetWidth(int characterCode, PdfRectangle boundingBox)
         {
             var widthIndex = characterCode - firstChar;

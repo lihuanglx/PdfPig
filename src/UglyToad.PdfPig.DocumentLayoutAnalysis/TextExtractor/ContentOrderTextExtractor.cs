@@ -63,6 +63,7 @@
                         letter.StartBaseLine,
                         letter.EndBaseLine,
                         letter.Width,
+                        letter.LooseBox,
                         letter.FontSize,
                         letter.Font,
                         letter.RenderingMode,

@@ -13,7 +13,7 @@
         /// <summary>
         /// The font name.
         /// </summary>
-        NameToken? Name { get; }
+        NameToken Name { get; }
 
         /// <summary>
         /// Is the font vertical.
@@ -39,6 +39,10 @@
         /// Get the font bounding box.
         /// </summary>
         CharacterBoundingBox GetBoundingBox(int characterCode);
+
+        double GetDescent();
+        
+        double GetAscent();
 
         /// <summary>
         /// Get the font transformation matrix.

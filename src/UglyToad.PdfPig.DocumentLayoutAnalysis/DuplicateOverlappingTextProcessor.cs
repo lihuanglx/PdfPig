@@ -68,15 +68,16 @@
                     // update textSequence?
 
                     // update font details to bold
-                    var fontDetails = new FontDetails(letter.Font.Name, true, letter.Font.Weight, letter.Font.IsItalic);
+                    // var fontDetails = new FontDetails(letter.Font.Name, true, letter.Font.Weight, letter.Font.IsItalic);
 
                     var newLetter = new Letter(letter.Value,
                         letter.GlyphRectangle,
                         letter.StartBaseLine,
                         letter.EndBaseLine,
                         letter.Width,
+                        letter.LooseBox,
                         letter.FontSize,
-                        fontDetails,
+                        letter.Font,
                         letter.RenderingMode,
                         letter.StrokeColor,
                         letter.FillColor,

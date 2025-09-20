@@ -91,6 +91,16 @@ namespace UglyToad.PdfPig.PdfFonts.Simple
             return new CharacterBoundingBox(boundingBox, advanceWidth);
         }
 
+        public double GetDescent()
+        {
+            return standardFontMetrics.Descender;
+        }
+
+        public double GetAscent()
+        {
+            return standardFontMetrics.Ascender;
+        }
+
         private (PdfRectangle bounds, double advanceWidth) GetBoundingBoxInGlyphSpace(int characterCode)
         {
             var name = encoding.GetName(characterCode);

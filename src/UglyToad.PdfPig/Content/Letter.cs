@@ -54,12 +54,12 @@
         /// <summary>
         /// The name of the font.
         /// </summary>
-        public string? FontName => Font?.Name;
+        public string FontName => Font.Name;
 
         /// <summary>
         /// Details about the font for this letter.
         /// </summary>
-        public FontDetails Font { get; }
+        public IFont Font { get; }
 
         /// <summary>
         /// Text rendering mode that indicates whether we should draw this letter's strokes,
@@ -96,6 +96,8 @@
         /// Sequence number of the ShowText operation that printed this letter.
         /// </summary>
         public int TextSequence { get; }
+        
+        public PdfRectangle LooseBox { get; }
 
         /// <summary>
         /// Create a new letter to represent some text drawn by the Tj operator.
@@ -104,8 +106,9 @@
             PdfPoint startBaseLine,
             PdfPoint endBaseLine,
             double width,
+            PdfRectangle looseBox,
             double fontSize,
-            FontDetails font,
+            IFont font,
             TextRenderingMode renderingMode,
             IColor strokeColor,
             IColor fillColor,
@@ -117,6 +120,7 @@
             StartBaseLine = startBaseLine;
             EndBaseLine = endBaseLine;
             Width = width;
+            LooseBox = looseBox;
             FontSize = fontSize;
             Font = font;
             RenderingMode = renderingMode;

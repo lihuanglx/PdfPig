@@ -17,7 +17,7 @@
         private static readonly TransformationMatrix DefaultTransformation =
             TransformationMatrix.FromValues(1 / 1000.0, 0, 0, 1 / 1000.0, 0, 0);
 
-        private readonly FontDescriptor? descriptor;
+        private readonly FontDescriptor descriptor;
 
         private readonly Dictionary<int, CharacterBoundingBox> boundingBoxCache = new();
 
@@ -45,7 +45,7 @@
 
         public TrueTypeSimpleFont(
             NameToken name,
-            FontDescriptor? descriptor,
+            FontDescriptor descriptor,
             CMap? toUnicodeCMap,
             Encoding? encoding,
             TrueTypeFont? font,
@@ -191,6 +191,16 @@
             boundingBoxCache[characterCode] = result;
 
             return result;
+        }
+
+        public double GetDescent()
+        {
+            return descriptor.Descent;
+        }
+
+        public double GetAscent()
+        {
+            return descriptor.Ascent;
         }
 
         public TransformationMatrix GetFontMatrix()
